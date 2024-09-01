@@ -6,7 +6,7 @@ package ejercicioentradasalida;
 
 /**
  *
- * @author Luis Fernando Castillo 20241222068
+ * @author Luis Fernando Castillo Salazar 20241222068
  */
 public class DoubleAndInt {
     public static void main(String[] args) {

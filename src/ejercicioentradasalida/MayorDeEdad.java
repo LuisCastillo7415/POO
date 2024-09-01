@@ -4,7 +4,7 @@
  */
 package ejercicioentradasalida;
 import java.util.Scanner;
-
+// .
 public class MayorDeEdad {
     public static void main(String[] args) {
         /** pide un nombre y una edad. Luego nos dice por consola: "El señor/a XXXXX hace YYYY años
