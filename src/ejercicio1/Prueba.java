@@ -10,6 +10,8 @@ package ejercicio1;
  */
 public class Prueba {
     public static void main(String[] args) {
+        // Ejercicio 8.a.1. Crea una clase llamada Forma:
+        
         Triangulo tl = new Triangulo(4, 5, "Triangulo", 1, 2, "azul"); 
         System.out.println("Triangulo: ");
         System.out.println(tl.toString());
