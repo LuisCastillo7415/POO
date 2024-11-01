@@ -10,6 +10,8 @@ package ejercicio12;
  */
 public class Prueba {
     public static void main(String[] args) {
+        //8.a.6. Eva necesita gestionar una empresa agroalimentaria
+        
         ProductosFrescos pf1 = new ProductosFrescos(20, "Afganistan", 30, 2234); 
           ProductosFrescos pf2 = new ProductosFrescos(20, "Noruega", 40, 3342); 
           System.out.println("Productos Frescos");
