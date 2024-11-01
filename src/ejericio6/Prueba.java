@@ -10,6 +10,8 @@ package ejericio6;
  */
 public class Prueba {
     public static void main(String[] args) {
+        //Ejercicio 8.a.10.Ejercicio Alfombras
+        
         AlfombraCuadrada ac = new AlfombraCuadrada(4, "Azul", 100);
         System.out.println("Alfombra Cuadrada");
         System.out.println(ac.toString());
