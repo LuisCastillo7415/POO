@@ -10,6 +10,7 @@ package ejercicio5;
  */
 public class Prueba {
     public static void main(String[] args) {
+        // Ejercicio 8.a.9. Ejercicio multiviviendas
         
          Piso pi = new Piso(20, 2, "Calle #3", 60);
         Adosado ad = new Adosado(5, "Calle #5", 120);
