@@ -10,6 +10,8 @@ import java.util.Scanner;
  */
 public class Prueba {
     public static void main(String[] args) {
+        // Ejercicio 8.a.7. Crear una clase llamada Empleado
+        
         Scanner in = new Scanner(System.in); 
         Empleado [] ep = new Empleado [4];
         for(int i = 0; i < ep.length; i++){
