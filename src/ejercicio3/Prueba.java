@@ -10,6 +10,7 @@ package ejercicio3;
  */
 public class Prueba {
     public static void main(String[] args) {
+        // Ejercicio 8.a.5. Juan acaba de abrir un desguace
         
         Coches co = new Coches(4, 200, "Nissan", 300); 
         System.out.println(co.toString());
