@@ -10,6 +10,9 @@ package ejercicio13;
  */
 public class Inicio {
     public static void main(String[] args) {
+        //Ejercicio 8.a.8. Nuevos métodos tipo Math.
+
+        
         Math2 m = new Math2(); 
      
         
