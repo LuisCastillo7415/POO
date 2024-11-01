@@ -12,6 +12,8 @@ import java.util.Scanner;
  */
 public class Prueba {
     public static void main(String[] args) {
+        // Ejercicio 8.b.7. Relaciones.
+        
         Scanner in = new Scanner(System.in); 
         
         System.out.println("Ingrese un numero: ");
