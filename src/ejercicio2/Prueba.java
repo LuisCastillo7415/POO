@@ -10,6 +10,8 @@ package ejercicio2;
  */
 public class Prueba {
     public static void main(String[] args) {
+        // Ejercicio 8.a.2. Ejercicio Empleado-Programador.
+        
         Empleado jose = new Empleado("Jose Ivan", "123", 21, false, 123.4);
         System.out.println(jose.toString());
         System.out.println("Clasificacion segun edad: " + jose.clasificar());
