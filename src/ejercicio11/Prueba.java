@@ -10,6 +10,8 @@ package ejercicio11;
  */
 public class Prueba {
     public static void main(String[] args) {
+        //Ejercicio 8.a.4. Proyecto coches Matriculados.
+        
         Coche a = new Coche("Nissan", "Blanco", 10000, 10, 10, "BSA124", "265543"); 
         System.out.println(a.toString());
         Coche b = new Coche("BMW", "Rojo", 20000, 20, 30, "LVP456", "33452"); 
