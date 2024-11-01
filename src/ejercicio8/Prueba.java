@@ -10,6 +10,8 @@ import java.util.Scanner;
  */
 public class Prueba {
     public static void main(String[] args) {
+        //Ejercicio 8.a.13. Se necesita hacer una aplicación que gestione el almacén de Mercaregala.
+        
         Scanner in = new Scanner(System.in);
         Almacen almacen = new Almacen(10);
         int opcion;
