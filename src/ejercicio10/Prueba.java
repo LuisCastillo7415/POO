@@ -12,6 +12,8 @@ import java.util.Scanner;
  */
 public class Prueba {
     public static void main(String[] args) {
+        //Ejercicio 8.b.3. Crea una clase llamada CajaRegistradora
+        
         CajaRegistradora cr = new CajaRegistradora("Caja1", 5, 20); 
         Scanner in = new Scanner(System.in); 
         int opcion; 
