@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 public class Prueba {
     public static void main(String[] args) {
+        
+        // Ejercicio 8.b.1. Recetas FastFood. 
         Restaurante rt = new Restaurante(); 
          ArrayList<String> ingredientesDeLaPizza = new ArrayList<>();
         ingredientesDeLaPizza.add("Queso");
