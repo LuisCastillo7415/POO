@@ -10,7 +10,7 @@ package ejercicio7;
  */
 public class Prueba {
     public static void main(String[] args) {
-        
+        // Ejercicio 8.a.11. Profesores eméritos.
     
     ProfesorEmerito jose = new ProfesorEmerito(5, "Jose Perez", 47, 25);
     
