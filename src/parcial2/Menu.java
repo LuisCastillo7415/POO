@@ -19,11 +19,13 @@ public class Menu {
         System.out.println("1.-Alquilar un espacio");
         System.out.println("2.- Retirar Vehiculo");
         System.out.println("3.- Consular ingresos mensuales");
-        System.out.println("4.- Consultar proporcion Autos/Motos");
-        System.out.println("5.- Listado de matrículas y cuota mensual y tipo vehículo");
+        System.out.println("4.- Consultar proporcion Autos/Motos/Camiones/Camionetas");
+        System.out.println("5.- Listado de matrículas, cuota mensual y tipo vehículo");
             System.out.println("6.- Buscar vehiculo");
             System.out.println("7.- Ver cantidad por tipo de camion");
             System.out.println("8.- Ver la cantidad de espacios disponibles ");
+            System.out.println("9.- Consultar la cantidad de vehiculos de un tipo");
+            System.out.println("10.- Consulatar cantidad de caionetas por tipo de servicio");
         System.out.println("0.- Salir");
         opcion = in.nextInt(); 
         in.nextLine(); 
@@ -32,7 +34,7 @@ public class Menu {
             case 1:
                 System.out.println("Ingrese el tipo de vehiculo: ");
                 String tipoVehiculo = in.nextLine(); 
-                System.out.println("Ingrese l amarca: ");
+                System.out.println("Ingrese la amarca: ");
                 String marca = in.nextLine(); 
                 System.out.println("Ingrese el precio: ");
                 double precio = in.nextDouble();
@@ -75,7 +77,7 @@ public class Menu {
                     //Agrego camion a los tipos de vehiculo que se pueden ingresar por el usuario
                 }else if(tipoVehiculo.equalsIgnoreCase("Camion")){
                     in.nextLine();
-                    System.out.println("Ingrese el tipo de camion: ");
+                    System.out.println("Ingrese el tipo de camion (Sencillo o doble): ");
                     String tipoDeCamion = in.nextLine(); 
                     System.out.println("Ingrese el numero de ejes: ");
                     int numeroDeEjes = in.nextInt(); 
@@ -97,6 +99,30 @@ public class Menu {
                         System.out.println("Matricula no valida");
                     }
                     
+                    
+                }else if(tipoVehiculo.equalsIgnoreCase("Camioneta")){
+                in.nextLine();
+                    System.out.println("Ingrese el tipo de servicio (SUV, Carga, Pickup u otro): ");
+                String tipoDeServicio = in.nextLine(); 
+                    System.out.println("Ingrese el numero de pasajeros: ");
+                    int numeroDePasajeros = in.nextInt();
+                    in.nextLine(); 
+                    System.out.println("Tiene remolque? (true o false): ");
+                    boolean tieneRemolque = in.nextBoolean(); 
+                    Camioneta cmt = new Camioneta(tipoDeServicio, numeroDePasajeros, tieneRemolque, marca, precio, cilindraje);
+                    in.nextLine();
+                    
+                     System.out.println("Ingrese la matricula del vehiculo: ");
+                    String matricula = in.nextLine(); 
+                    if(cmt.matricular(matricula)){
+                    if(garaje.alquilarEspacios(cmt)){
+                        System.out.println("Espacio alquilado correctamente");
+                    }else{
+                        System.out.println("Sin espacios disponibles :( ");
+                    }
+                    }else{
+                        System.out.println("Matricula no valida");
+                    }
                     
                 }else{
                     System.out.println("Tipo de vehiculo no valido");
@@ -122,10 +148,12 @@ public class Menu {
                 
             case 4: 
                 int cantidadDeMotos = garaje.calcularOcupacionPorTipoVehiculo(new Moto(false, "", 0, 0));
-                int cantidadDeAutos = garaje.calcularOcupacionPorTipoVehiculo(new Auto(false, false, "", 0, 0)); 
+                int cantidadDeAutos = garaje.calcularOcupacionPorTipoVehiculo(new Auto(false, false, "", 0, 0));
+                
                 //Agrego camion a la proporcion de autos/motos, siend ahora autos/motos/camion
-                int cantidadDeCamiones = garaje.calcularOcupacionPorTipoVehiculo(new Camion(0, "", 0, "", 0, 0));
-                System.out.println("La proporcion autos/motos/camiones es:  " + cantidadDeAutos + "/" + cantidadDeMotos + "/" + cantidadDeCamiones);
+                int cantidadDeCamiones = garaje.calcularOcupacionPorTipoVehiculo(new Camion("", 0, 0));
+                int cantidadDeCamionetas = garaje.calcularOcupacionPorTipoVehiculo(new Camioneta("", 0 , 0)); 
+                System.out.println("La proporcion autos/motos/camiones/Camionetas es:  " + cantidadDeAutos + "/" + cantidadDeMotos + "/" + cantidadDeCamiones + "/" + cantidadDeCamionetas);
                 break; 
             case 5: 
                 System.out.println("Listado de Vehiculos: ");
@@ -140,8 +168,9 @@ public class Menu {
                    if(v.getPlaca().equals(placaVehiculoBuscar)){
                     
                        System.out.println("Vehiculo en posicion: " + garaje.buscarVehiculo(v));
+                       break; 
                    }else
-                       System.out.println("-1");
+                       System.out.println("-99");
                }
                    
                        break;
@@ -152,10 +181,35 @@ public class Menu {
                 System.out.println("Cantidad de espacios disponibles: " + garaje.cantidadDePlazasDiponibles());
                 
                 break; 
+            case 9: 
+                int cantidadIndividualMotos = garaje.calcularOcupacionPorTipoVehiculo(new Moto(false, "", 0, 0));
+                int cantidadadIndividualAutos = garaje.calcularOcupacionPorTipoVehiculo(new Auto(false, false, "", 0, 0));
+               int cantidadIndividualCamiones = garaje.calcularOcupacionPorTipoVehiculo(new Camion( "", 0, 0));
+                int cantidadIndividualCamionetas = garaje.calcularOcupacionPorTipoVehiculo(new Camioneta("", 0, 0)); 
+                System.out.println("Ingrese el tipo de vehiculo: ");
+                String claseDelVehiculo = in.nextLine(); 
+                if(claseDelVehiculo.equalsIgnoreCase("Moto")){
+                    System.out.println("Cantidad de motos: " + cantidadIndividualMotos);
+                }else if(claseDelVehiculo.equalsIgnoreCase("Auto")){
+                    System.out.println("Cantidad de autos: " + cantidadadIndividualAutos);
+                }else if(claseDelVehiculo.equalsIgnoreCase("Camion")){
+                    System.out.println("Cantidad de camiones: " + cantidadIndividualCamiones );
+                }else if(claseDelVehiculo.equalsIgnoreCase("Camioneta")){
+                    System.out.println("CAntidad de camionetas: " + cantidadIndividualCamionetas );
+                
+                }else{
+                    System.out.println("Tipo de vehiculo no valido");
+                }
+                break; 
+            case 10: 
+                garaje.calcularOcupacionPorTipoDeCamioneta();
+                break; 
+           
             case 0: 
                 System.out.println("Cerrando el programa...");
         }
         }while(opcion != 0); 
         
+     
     }
 }

@@ -77,6 +77,10 @@ public class Camion extends Vehiculo{
         return capacidadDeCarga;
     }
 
+    public Camion(String marca, double precio, int cilindraje) {
+        super(marca, precio, cilindraje);
+    }
+
  
    
 }
