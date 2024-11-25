@@ -30,7 +30,7 @@ public class Garaje implements IGaraje{
 private ArrayList<Vehiculo> vehiculos; 
 public int numeroDeEspacios; 
 
-    public Garaje(String departamento, String ciudad, String direccion, String telefono, String email, String nombreAdministrador, ArrayList<Vehiculo> vehiculos, int numeroDeEspacios) {
+    public Garaje(String departamento, String ciudad, String direccion, String telefono, String email, String nombreAdministrador,  int numeroDeEspacios) {
         this.departamento = departamento;
         this.ciudad = ciudad;
         this.direccion = direccion;
@@ -81,8 +81,16 @@ public int numeroDeEspacios;
         }
         return contadorTipoVehiculo; 
         }
-    public boolean retirarVehiculos(Vehiculo v){
-    return vehiculos.remove(v); 
+    public boolean retirarVehiculos(String matricula){
+        Vehiculo vehiculoRetirar = null; 
+        for(Vehiculo v : vehiculos){
+        if(v.getPlaca().equals(matricula)){
+        vehiculoRetirar = v;
+        break; 
+        }
+            
+        }
+    return vehiculos.remove(vehiculoRetirar); 
     }
     public void lista(){
     for(Vehiculo v : vehiculos){
@@ -124,6 +132,10 @@ public int numeroDeEspacios;
      public int cantidadDePlazasDiponibles(){
      return numeroDeEspacios - vehiculos.size(); 
      }
+     
+     public int verOcupacion(){
+     return vehiculos.size(); 
+     }
     
      public void calcularOcupacionPorTipoDeCamioneta(){
      int contadorSuv = 0;
@@ -152,5 +164,33 @@ public int numeroDeEspacios;
          System.out.println("Cantidad de camionetas Otro: " + contadorOtro);
      
      }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNombreAdministrador() {
+        return nombreAdministrador;
+    }
+
+    public int getNumeroDeEspacios() {
+        return numeroDeEspacios;
+    }
     
 }

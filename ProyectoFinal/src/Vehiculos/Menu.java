@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class Menu {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in); 
-        Garaje garaje = new Garaje("", "", "", "", "", "", new ArrayList<>(), 20); 
+        Garaje garaje = new Garaje("", "", "", "", "", "",  20); 
         int opcion; 
         
         do{
