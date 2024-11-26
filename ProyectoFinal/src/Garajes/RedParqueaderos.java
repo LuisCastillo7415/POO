@@ -9,8 +9,6 @@ import Excepciones.LimiteDeMotosException;
 import Excepciones.SinEspaciosDisponiblesException;
 import Vehiculos.Vehiculo;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -42,7 +40,7 @@ public class RedParqueaderos {
    //Reportes 
    public void reporteOcupacion(){
    for(Garaje g: garajes){
-       System.out.println("\nCiudad del garaje: " + g.getCiudad() + ", Nombre del Administrador" + g.getNombreAdministrador() + ", Ocupacion: " + g.verOcupacion());
+       System.out.println("\nCiudad del garaje: " + g.getCiudad() + ", Nombre del Administrador: " + g.getNombreAdministrador() + ", Ocupacion: " + g.verOcupacion());
    }
    
    }
@@ -52,14 +50,14 @@ public class RedParqueaderos {
    double ingresos = g.calcularIngresos(); 
    total += ingresos;
    
-   System.out.println("Ciudad del garaje: " + g.getCiudad() + ", Nombre del Administrador" + g.getNombreAdministrador() + ", Ingreso mensual " + ingresos);
+   System.out.println("Ciudad del garaje: " + g.getCiudad() + ", Nombre del Administrador: " + g.getNombreAdministrador() + ", Ingreso mensual: " + ingresos);
   
    }
        System.out.println("Ingresos totales de todos los garajes: " + total );
    }
    public void lista(){
    for(Garaje v : garajes){
-       System.out.println("Posicion: " + garajes.indexOf(v) + " Ubicacion: " +  v.getCiudad()+ "-" + v.getDepartamento() + " Administrador: " + v.getNombreAdministrador());
+       System.out.println("Posicion: " + garajes.indexOf(v) + ", Ubicacion: " +  v.getCiudad()+ "-" + v.getDepartamento() + ", Administrador: " + v.getNombreAdministrador());
    }
    }
    
@@ -80,6 +78,12 @@ public class RedParqueaderos {
 
     public ArrayList<Garaje> getGarajes() {
         return garajes;
+    }
+    public int ocupacion(Garaje g, Vehiculo v){
+    return g.calcularOcupacionPorTipoVehiculo(v);
+    
+    
+    
     }
    
 }

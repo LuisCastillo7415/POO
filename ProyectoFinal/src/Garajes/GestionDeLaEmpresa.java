@@ -4,18 +4,11 @@
  */
 package Garajes;
 
-import Excepciones.LimiteDeCamionesException;
-import Excepciones.LimiteDeMotosException;
-import Excepciones.SinEspaciosDisponiblesException;
 import Vehiculos.Auto;
 import Vehiculos.Camion;
 import Vehiculos.Camioneta;
-import Vehiculos.Menu;
 import Vehiculos.Moto;
-import Vehiculos.Vehiculo;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -29,15 +22,16 @@ public class GestionDeLaEmpresa {
         
         int opcion; 
         do{
-        System.out.println("Gestion de la empresa. Ingrese una opcion: ");
+        System.out.println("\nGestion de la empresa. Ingrese una opcion: ");
         System.out.println("1. Crear Garaje");
         System.out.println("2. Eliminar Garaje");
         System.out.println("3. Actualizar Garaje");
         System.out.println("4. Ver listado de garajes");
-        System.out.println("5. Ingresar Vehículo");
-        System.out.println("6. Retirar Vehículo");
-        System.out.println("7. Informe de Ocupación");
+        System.out.println("5. Ingresar Vehiculo");
+        System.out.println("6. Retirar Vehiculo");
+        System.out.println("7. Informe de Ocupacion");
         System.out.println("8. Informe de Recaudo Mensual");
+        System.out.println("9. Ocupacion por un tipo de vehiculo");
         System.out.println("0. Salir");
         System.out.println("Elija una opcion:");
             opcion = in.nextInt();
@@ -49,9 +43,9 @@ public class GestionDeLaEmpresa {
                     String departamento = in.nextLine(); 
                     System.out.println("Ingrese la ciudad: ");
                     String ciudad = in.nextLine();
-                    System.out.println("Ingrese la dirección: ");
+                    System.out.println("Ingrese la direccion: ");
                     String direccion = in.nextLine();
-                    System.out.println("Ingrese el teléfono: ");
+                    System.out.println("Ingrese el telefono: ");
                     String telefono = in.nextLine();
                     System.out.println("Ingrese el email: ");
                     String email = in.nextLine();
@@ -85,15 +79,15 @@ public class GestionDeLaEmpresa {
                     String nuevoDepartamento = in.nextLine();
                     System.out.println("Ingrese la nueva ciudad: ");
                     String nuevaCiudad = in.nextLine();
-                    System.out.println("Ingrese la nueva dirección: ");
+                    System.out.println("Ingrese la nueva direccion: ");
                     String nuevaDireccion = in.nextLine();
-                    System.out.println("Ingrese el nuevo teléfono: ");
+                    System.out.println("Ingrese el nuevo telefono: ");
                     String nuevoTelefono = in.nextLine();
                     System.out.println("Ingrese el nuevo email: ");
                     String nuevoEmail = in.nextLine();
                     System.out.println("Ingrese el nuevo nombre del administrador: ");
                     String nuevoAdministrador = in.nextLine();
-                    System.out.println("Ingrese el nuevo número de espacios: ");
+                    System.out.println("Ingrese el nuevo numero de espacios: ");
                     int nuevoNumeroEspacios = in.nextInt();
                     in.nextLine();  
                     
@@ -101,6 +95,7 @@ public class GestionDeLaEmpresa {
                     garajes.actualizarGaraje(posicionActualizar, nuevoGaraje);
                     break; 
                 case 4: 
+                    System.out.println("\n Listado de Garajes");
                     garajes.lista();
                     break; 
                 case 5: 
@@ -212,6 +207,31 @@ public class GestionDeLaEmpresa {
                 case 8: 
                     garajes.recaudoMensual();
                     break; 
+                case 9: 
+                    System.out.println("Ingrese la posicion del garaje: ");
+                    int posicionn = in.nextInt(); 
+                    in.nextLine(); 
+                    Garaje j = garajes.getGarajes().get(posicionn);
+                   
+                      int cantidadIndividualMotos = garajes.ocupacion(j, new Moto(false, "", 0, 0));
+                int cantidadadIndividualAutos = garajes.ocupacion(j,new Auto(false, false, "", 0, 0));
+               int cantidadIndividualCamiones = garajes.ocupacion(j,new Camion( "", 0, 0));
+                int cantidadIndividualCamionetas = garajes.ocupacion(j,new Camioneta("", 0, 0)); 
+                System.out.println("Ingrese el tipo de vehiculo: ");
+                String claseDelVehiculo = in.nextLine(); 
+                if(claseDelVehiculo.equalsIgnoreCase("Moto")){
+                    System.out.println("Cantidad de motos: " + cantidadIndividualMotos);
+                }else if(claseDelVehiculo.equalsIgnoreCase("Auto")){
+                    System.out.println("Cantidad de autos: " + cantidadadIndividualAutos);
+                }else if(claseDelVehiculo.equalsIgnoreCase("Camion")){
+                    System.out.println("Cantidad de camiones: " + cantidadIndividualCamiones );
+                }else if(claseDelVehiculo.equalsIgnoreCase("Camioneta")){
+                    System.out.println("CAntidad de camionetas: " + cantidadIndividualCamionetas );
+                
+                }else{
+                    System.out.println("Tipo de vehiculo no valido");
+                }
+                break; 
 
                 case 0: 
                     System.out.println("Cerrando el programa :c");
