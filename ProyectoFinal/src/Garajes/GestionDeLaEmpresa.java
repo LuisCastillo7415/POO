@@ -12,7 +12,8 @@ import java.util.Scanner;
 
 /**
  *
- * @author Luis
+ * Luis Fernando Castillo 20241222068
+ * Edgar Jesid Velez Castellanos 20241222443
  */
 public class GestionDeLaEmpresa {
     @SuppressWarnings("empty-statement")
@@ -104,7 +105,7 @@ public class GestionDeLaEmpresa {
                     in.nextLine();
                     System.out.println("Ingrese el tipo de vehiculo: ");
                 String tipoVehiculo = in.nextLine(); 
-                System.out.println("Ingrese la amarca: ");
+                System.out.println("Ingrese la marca: ");
                 String marca = in.nextLine(); 
                 System.out.println("Ingrese el precio: ");
                 double precio = in.nextDouble();
@@ -193,14 +194,24 @@ public class GestionDeLaEmpresa {
                 }
                 break; 
                 case 6: 
-                    System.out.println("Ingrese la posicion del garaje: ");
-                    int posicionRetirar = in.nextInt(); 
-                    in.nextLine(); 
-                    System.out.println("Introduce la placa del vehiculo que desea retirar: ");
-               String placaVehiculoRetirar = in.nextLine(); 
-               Garaje gaj = garajes.getGarajes().get(posicionRetirar); 
-               garajes.retirarVehiculos(gaj, placaVehiculoRetirar);
-               break; 
+    
+                  System.out.println("Ingrese la posicion del garaje: ");
+                  int posicionRetirar = in.nextInt();
+                  in.nextLine(); 
+                  System.out.println("Introduce la placa del vehículo que desea retirar: ");
+                  String placaVehiculoRetirar = in.nextLine();                 
+                  Garaje gaj = garajes.getGarajes().get(posicionRetirar);
+                  int cantidadAntes = gaj.getVehiculos().size();               
+                  garajes.retirarVehiculos(gaj, placaVehiculoRetirar);
+                  int cantidadDespues = gaj.getVehiculos().size();                
+                   if (cantidadAntes > cantidadDespues) {
+                 System.out.println("el vehículo con placa " + placaVehiculoRetirar + " ha sido retirado exitosamente");
+                 } else {
+                 System.out.println("No se encontro un vehiculo con la placa " + placaVehiculoRetirar + " en el garaje especificado");
+                }
+                 break;
+
+
                 case 7: 
                     garajes.reporteOcupacion();
                     break; 
